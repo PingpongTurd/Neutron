@@ -16,6 +16,11 @@ def receive():
             del clients[conn]
             print("Invalid data sent, connection closed")
         else:
+            if clients[conn]['DATA'][1] == "td":
+                with open('glb.json',"r") as f:
+                    clb = json.load(f)
+                clients[conn]["CLIENT"].send(pickle.dumps(clb))
+                return
             with open('glb.json',"r") as f:
                 clb = json.load(f)
             clb[clients[conn]['DATA'][0]] = clients[conn]['DATA'][1]
