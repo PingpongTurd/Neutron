@@ -1,3 +1,5 @@
+#Todo: https://trello.com/b/SFzvhiz6/tristan-invaders
+
 import pygame
 import os
 import time
@@ -6,32 +8,32 @@ pygame.font.init()
 W,H = 750, 750
 WIN = pygame.display.set_mode((W,H))
 pygame.display.set_caption("Space Invaders")
-# >> Loading Images innit <<
-# >> lasers innit <<
+# >> Loading Images <<
+# >> lasers <<
 Plaser = pygame.image.load(os.path.join('assets', 'laser.png'))
 Elaser = pygame.image.load(os.path.join('assets', 'enemylaser.png'))
 
-# >> Player innit << 
+# >> Player << 
 PlayerShip = pygame.image.load(os.path.join('assets', 'ship.png'))
-# >> Enemys innit <<
+# >> Enemys <<
 Enemy1 = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy1_1.png')),(50,50))
 Enemy1Shoot = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy1_2.png')),(50,50))
 Enemy2 = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy2_1.png')),(50,50))
 Enemy2Shoot = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy2_2.png')),(50,50))
 Enemy3 = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy3_1.png')),(50,50))
 Enemy3Shoot = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy3_2.png')),(50,50))
-# >> Explosions innit << 
+# >> Explosions << 
 explosionBlue = pygame.image.load(os.path.join('assets', 'explosionblue.png'))
 explosionGreen = pygame.image.load(os.path.join('assets', 'explosiongreen.png'))
 explosionPurple = pygame.image.load(os.path.join('assets', 'explosionpurple.png'))
-# >> Background innit <<
+# >> Background <<
 Background = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'background.jpg')),(W,H))
-# >> Powerups innit innit <<
+# >> Powerups <<
 Bomb = pygame.transform.scale(pygame.image.load(os.path.join('assets','bomb.png')),(25,25))
 
-# >> Main Class innit << 
+# >> Main Class << 
 class main():
-    # >> Runtime innit << 
+    # >> Runtime << 
     def rungame():
         global font, lives, level, player, enemies, lost, lfont
         enemies = []
@@ -113,10 +115,12 @@ class main():
                 player.shoot()
 
             if random.randrange(1,2) == 1 and len(powerups) == 0:
-                PU = powerup(random.randrange(50,W-50), random.randrange(-1500, -100), random.choice(['bomb']))
+                PU = powerup(0,0, random.choice(['bomb']))
                 powerups.append(PU)
             for i in powerups:
+                
                 i.move()
+                i.draw()
             for enemy in enemies[:]:
                 
                 enemy.move(enemy_vel)
@@ -133,7 +137,7 @@ class main():
             player.move_lasers(-laser_vel, enemies)
             
                     
-    # >> Refresh the window innit << 
+    # >> Refresh the window << 
     def draw():
         global lives, level, font, player, enemies, lost
         WIN.blit(Background, (0,0))
@@ -152,7 +156,7 @@ class main():
         pygame.display.update()
 
 
-# >> collide innit <<
+# >> collide <<
 def collide(obj1, obj2):
     return obj1.rect.colliderect(obj2.rect) == 1
 # Laser
@@ -176,11 +180,8 @@ class Laser:
     def collision(self, obj):
         return collide(obj,self)
     
-# >> POWER UPS innit <<
+# >> POWER UPS <<
 class powerup:
-
-    
-    
     def __init__(self, x, y, name):
         powerupTable = {
             'bomb':Bomb,
@@ -195,12 +196,13 @@ class powerup:
     def move(self):
         self.y += 10
         self.rect.center = (self.x,self.y)
+
     def draw(self):
         WIN.blit(self.img,(self.x,self.y))
         
 #Ship
 class Ship():
-    COOLDOWN = 30
+    COOLDOWN = 0
     def __init__(self, x, y, health=100):
         self.x = x
         self.y = y
