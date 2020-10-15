@@ -6,32 +6,32 @@ pygame.font.init()
 W,H = 750, 750
 WIN = pygame.display.set_mode((W,H))
 pygame.display.set_caption("Space Invaders")
-# >> Loading Images <<
-# >> lasers <<
+# >> Loading Images innit <<
+# >> lasers innit <<
 Plaser = pygame.image.load(os.path.join('assets', 'laser.png'))
 Elaser = pygame.image.load(os.path.join('assets', 'enemylaser.png'))
 
-# >> Player << 
+# >> Player innit << 
 PlayerShip = pygame.image.load(os.path.join('assets', 'ship.png'))
-# >> Enemys <<
+# >> Enemys innit <<
 Enemy1 = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy1_1.png')),(50,50))
 Enemy1Shoot = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy1_2.png')),(50,50))
 Enemy2 = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy2_1.png')),(50,50))
 Enemy2Shoot = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy2_2.png')),(50,50))
 Enemy3 = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy3_1.png')),(50,50))
 Enemy3Shoot = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy3_2.png')),(50,50))
-# >> Explosions << 
+# >> Explosions innit << 
 explosionBlue = pygame.image.load(os.path.join('assets', 'explosionblue.png'))
 explosionGreen = pygame.image.load(os.path.join('assets', 'explosiongreen.png'))
 explosionPurple = pygame.image.load(os.path.join('assets', 'explosionpurple.png'))
-# >> Background <<
+# >> Background innit <<
 Background = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'background.jpg')),(W,H))
-# >> Powerups <<
+# >> Powerups innit innit <<
 Bomb = pygame.transform.scale(pygame.image.load(os.path.join('assets','bomb.png')),(25,25))
 
-# >> Main Class << 
+# >> Main Class innit << 
 class main():
-    # >> Runtime << 
+    # >> Runtime innit << 
     def rungame():
         global font, lives, level, player, enemies, lost, lfont
         enemies = []
@@ -133,7 +133,7 @@ class main():
             player.move_lasers(-laser_vel, enemies)
             
                     
-    # >> Refresh the window << 
+    # >> Refresh the window innit << 
     def draw():
         global lives, level, font, player, enemies, lost
         WIN.blit(Background, (0,0))
@@ -152,7 +152,7 @@ class main():
         pygame.display.update()
 
 
-# >> collide <<
+# >> collide innit <<
 def collide(obj1, obj2):
     return obj1.rect.colliderect(obj2.rect) == 1
 # Laser
@@ -176,7 +176,7 @@ class Laser:
     def collision(self, obj):
         return collide(obj,self)
     
-# >> POWER UPS <<
+# >> POWER UPS innit <<
 class powerup:
 
     
