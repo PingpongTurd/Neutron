@@ -10,8 +10,7 @@ def receive():
         clients[conn]['CLIENT'] = conn
         clients[conn]['IP'] = addr 
         clients[conn]['DATA'] = list(pickle.loads(conn.recv(8000)))
-        print(len(clients[conn]['DATA']))
-        print(clients[conn]['DATA'])
+        print("Data received: ", clients[conn]['DATA'])
         if len(clients[conn]['DATA']) != 2:
             clients[conn]["CLIENT"].close()
             del clients[conn]
@@ -20,7 +19,7 @@ def receive():
             with open('glb.json',"r") as f:
                 clb = json.load(f)
             clb[clients[conn]['DATA'][0]] = clients[conn]['DATA'][1]
-            print(clb)
+            print("All data: ",clb)
             with open('glb.json','w') as f:
                 json.dump(clb,f)
             clients[conn]["CLIENT"].close()
