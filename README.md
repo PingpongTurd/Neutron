@@ -1,4 +1,4 @@
-# School innit
+# School
 
 © 2020 Proton Dev-sys
 All rights reserved. No part of this publication may be reproduced, distributed,
