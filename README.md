@@ -6,6 +6,6 @@ except in the case of brief quotations embodied in critical reviews and certain 
 For permission requests, write to the publisher, addressed “Attention: Permissions Coordinator innit,” at the addresses below.
 sdu23h7dy98y87asd7a@gmail.com 
 ElectronDev@protonmail.com
-with any questions you may directly ask me or this other random guy on discord:
-Just a Thing#4419,
+with any questions you may directly ask me or this other random guy on discord:\n
+Just a Thing#4419,\n
 ElectronDev#0001
