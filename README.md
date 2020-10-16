@@ -4,8 +4,13 @@ No part of this publication may be reproduced, distributed, or transmitted in an
 including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the publisher,
 except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
 For permission requests, write to the publisher, addressed “Attention: Permissions Coordinator innit,” at the addresses below.
-'sdu23h7dy98y87asd7a@gmail.com' 
-'ElectronDev@protonmail.com'
-**If you have questions you may directly ask me or this other random guy on discord:**
-> Just a Thing#4419
-> ElectronDev#0001
+
+**If you have questions you may directly ask using the information below:**
+
+#### Main developer
+> Just a Thing#4419 | sdu23h7dy98y87asd7a@gmail.com
+#### Server-side developer
+> ElectronDev#0001 | ElectronDev@protonmail.com
+
+## For our current plans, visit:
+> https://trello.com/b/SFzvhiz6/tristan-invaders
