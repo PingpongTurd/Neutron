@@ -10,10 +10,13 @@ def receive():
         clients[conn]['CLIENT'] = conn
         clients[conn]['IP'] = addr 
         clients[conn]['DATA'] = list(pickle.loads(conn.recv(8000)))
+        print(clients[conn]['IP'], " has connected")
         print("Data received: ", clients[conn]['DATA'])
-        for i in clients[conn]['DATA']:
-            clients[conn]['DATA'][i] = clients[conn]['DATA'][i].strip()
-            clients[conn]['DATA'][i] = clients[conn]['DATA'][i].lower()
+        cnt=0
+        while cnt !=2:
+            clients[conn]['DATA'][cnt] = clients[conn]['DATA'][cnt].strip()
+            clients[conn]['DATA'][cnt] = clients[conn]['DATA'][cnt].lower()
+            cnt = cnt+1
         if len(clients[conn]['DATA']) != 2:
             clients[conn]["CLIENT"].close()
             del clients[conn]

@@ -42,8 +42,8 @@ astroid = pygame.transform.scale(pygame.image.load(os.path.join('assets','astroi
 
 # >> Server << 
 class Server:
-    host = '192.168.1.100'
-    port = 8888
+    host = 'edi.geinc.xyz'
+    port = 80
     def serverfetch():
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect((host,port))

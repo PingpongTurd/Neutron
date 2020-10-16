@@ -4,8 +4,8 @@ import pickle
 import random
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = '192.168.1.100'
-port = 8888
+host = 'edi.geinc.xyz'
+port = 80
 client.connect((host,port))
 nm = input("> ")
 sc = input("> ")
