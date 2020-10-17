@@ -57,7 +57,34 @@ class Server:
         client.connect((host,port))
         client.send(pickle.dumps([nm,sc]))
 
+#MULIPLAYER STUFFS
+class multiplayer():
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    def __init__(self):
+        host = '192.168.1.100'
+        port = 8888
+        client.connect((host,port))
+        username = ''
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_BACKSPACE:
+                        uername = username[:-1]
+                    elif event.key == pygame.K_RETURN:
+                        QUITLOOP = True 
+                        break
+                    else:
+                        print(event.unicode)
+                        username += event.unicode
+            usert = font.render(f"{username}", 1, (255,255,255))
+            WIN.blit(usert,(W/2,10))
+            if QUITLOOP == true:
+                break
 
+                        
+                        
+    def sendData(self,data):
+        client.send(pickle.dumps(data))
 # >> Main Class << 
 class main():
     # >> Runtime << 
@@ -83,6 +110,7 @@ class main():
         laser_vel = 4
         lost = False
         powerups = []
+        multiplayer()
         while run:
             clock.tick(60) 
             player.rect.size = (50,50)
@@ -441,4 +469,3 @@ def main_menu():
                 main.rungame()
     pygame.quit()
 main_menu()
-
