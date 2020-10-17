@@ -25,6 +25,7 @@ Enemy2 = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy2
 Enemy2Shoot = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy2_2.png')),(50,50))
 Enemy3 = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy3_1.png')),(50,50))
 Enemy3Shoot = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'enemy3_2.png')),(50,50))
+pygame.display.set_icon(PlayerShip)
 
 
 # >> Explosions << 
@@ -59,12 +60,15 @@ class Server:
 
 #MULIPLAYER STUFFS
 class multiplayer():
-    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
     def __init__(self):
+        global client
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         host = '192.168.1.100'
         port = 8888
         client.connect((host,port))
         username = ''
+        QUITLOOP = False
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -78,12 +82,13 @@ class multiplayer():
                         username += event.unicode
             usert = font.render(f"{username}", 1, (255,255,255))
             WIN.blit(usert,(W/2,10))
-            if QUITLOOP == true:
+            if QUITLOOP == True:
                 break
 
                         
                         
     def sendData(self,data):
+        global client
         client.send(pickle.dumps(data))
 # >> Main Class << 
 class main():

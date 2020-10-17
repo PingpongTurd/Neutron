@@ -32,8 +32,8 @@ def receive():
                     i.send(pickle.dumps(['DIE',recvd[2]]))
             elif recvd[3] == 'PLAYER' and recvd[4] == 'ENEMY':
                 for i in clients:
-                    i.send(pickle.dumps(['COMMIT TAKE HEALTH',recvd[2],recvd[0]])
-        
+                    i.send(pickle.dumps(['COMMIT TAKE HEALTH',recvd[2],recvd[0]]))
+  
 while True:
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     ip = "192.168.1.100"
